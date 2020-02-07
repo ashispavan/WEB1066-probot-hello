@@ -8,3 +8,6 @@ before_install:
 
 script:
     - docker run --rm probot-hello npm run test
+
+after_success:
+    - docker tag probot-hello probot-hello:$(git rev-parse HEAD) 
